@@ -1,6 +1,6 @@
 import tips from "@/data/tipsData.json"
 
-const QurbaniTips = () => {
+const Tips = () => {
   
 
   return (
@@ -23,7 +23,7 @@ const QurbaniTips = () => {
           {tips.map(tip => (
             <div 
               key={tip.id}
-              className={`${tip.color} w-[300px] rounded-2xl p-6 transition-all duration-300 hover:shadow-lg`}
+              className={`bg-green-100 w-[300px] rounded-2xl p-6 transition-all duration-300 hover:shadow-lg mx-auto`}
             >
               
               
@@ -53,4 +53,4 @@ const QurbaniTips = () => {
   );
 };
 
-export default QurbaniTips;
+export default Tips;

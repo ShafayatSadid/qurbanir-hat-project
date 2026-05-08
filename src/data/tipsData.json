@@ -4,7 +4,7 @@
     "icon": "🔍",
     "title": "Check Health",
     "description": "Ensure the animal is healthy, active, and disease-free",
-    "color": "bg-green-50",
+    "color": "bg-emerald-900/20",
     "iconColor": "text-[#40916C]",
     "priority": 1
   },
@@ -13,7 +13,7 @@
     "icon": "⚖️",
     "title": "Verify Weight",
     "description": "Animal must meet minimum weight requirements for Qurbani",
-    "color": "bg-amber-50",
+    "color": "bg-amber-900/20",
     "iconColor": "text-[#F59E0B]",
     "priority": 2
   },
@@ -22,7 +22,7 @@
     "icon": "🦷",
     "title": "Check Age",
     "description": "Cow: 2+ years, Goat: 1+ year, identify by teeth",
-    "color": "bg-blue-50",
+    "color": "bg-teal-900/20",
     "iconColor": "text-blue-500",
     "priority": 3
   },
@@ -31,7 +31,7 @@
     "icon": "📋",
     "title": "Take Certificate",
     "description": "Get veterinary health certificate before purchase",
-    "color": "bg-purple-50",
+    "color": "bg-[#1B4332]/20",
     "iconColor": "text-purple-500",
     "priority": 4
   },
