@@ -1,26 +1,54 @@
+'use client'
 import animalsData from "@/data/animalsData.json"
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 const AnimalsPage = () => {
+
+    // state for sort
+    const [sort, setSort] = useState("default")
+
+    // sort function
+    const handleSort = (e) => {
+        setSort(e.target.value)
+    }
+
+    let filteredData = [...animalsData];
+
+    if (sort === "low") {
+        filteredData.sort((a, b) => a.price - b.price);
+    }
+    else if (sort === "high") {
+        filteredData.sort((a, b) => b.price - a.price);
+    }
+    else {
+        filteredData = [...animalsData]
+    }
+
+
     return (
         <div className="mt-30">
             {/* Page Header */}
             <div className="text-center mb-10">
-                <h1 className="text-3xl md:text-4xl font-bold text-[#2D6A4F] mb-3">
-                    All Animals
-                </h1>
-                <p className="text-gray-600 max-w-2xl mx-auto">
-                    Browse our complete collection of healthy cows and goats for Qurbani
-                </p>
+                <h1 className="text-[3rem] font-bold text-[#2D6A4F] mb-3">All Animals</h1>
+                <p className="text-gray-600 max-w-2xl mx-auto">Browse our complete collection of healthy cows and goats for Qurbani.</p>
             </div>
 
-            
+            {/* sort section */}
+            <div className="flex justify-center">
+                <select onChange={handleSort} defaultValue="Sort by: Default" className="select">
+                    <option disabled={true}>Sort by: Default</option>
+                    <option value="default">Default</option>
+                    <option value="low">Price: Low to High</option>
+                    <option value="high">Price: High to Low</option>
+                </select>
+            </div>
 
             <div className="flex gap-5 items-center justify-center flex-wrap my-8">
 
                 {/* featured card */}
                 {
-                    animalsData.map(item => <div
+                    filteredData.map(item => <div
                         className="card w-[330px] h-[470px] bg-[#ffffff] shadow-lg rounded-2xl p-4 relative"
                         key={item.id}>
                         <Image

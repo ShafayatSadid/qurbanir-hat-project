@@ -18,7 +18,7 @@ const NavBar = () => {
                             <NavLink href={"/"}>Home</NavLink>
                         </li>
                         <li>
-                            <NavLink href={"/animals"}>Animals</NavLink>
+                            <NavLink href={"/animals"}>All Animals</NavLink>
                         </li>
                     </ul>
                 </div>
@@ -32,7 +32,7 @@ const NavBar = () => {
                         <NavLink href={"/"}>Home</NavLink>
                     </li>
                     <li>
-                        <NavLink href={"/animals"}>Animals</NavLink>
+                        <NavLink href={"/animals"}>All Animals</NavLink>
                     </li>
                 </ul>
             </div>
