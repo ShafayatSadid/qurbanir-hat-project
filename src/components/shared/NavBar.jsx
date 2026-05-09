@@ -4,7 +4,7 @@ import profile from "@/assets/profile.png"
 
 const NavBar = () => {
     return (
-        <div className="navbar bg-[#ffffff] shadow-sm">
+        <div className="navbar bg-[#ffffff] shadow-sm lg:px-20">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

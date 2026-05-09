@@ -28,7 +28,7 @@ const Hero = () => {
                 </p>
 
                 {/* browse btn */}
-                <Link href={"/"}>
+                <Link href={"/animals"}>
                     <button className="animate__animated animate__fadeInUp animate_fast mb-8 btn btn-outline hover:text-green-700 text-white mx-auto border-2 border-[#ffffff]"><FaArrowRight /> Browse Animals</button>
                 </Link>
 

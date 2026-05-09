@@ -24,11 +24,11 @@ const TopBreeds = () => {
         </div>
 
         {/* Breeds Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-[1300px] mx-auto">
+        <div className="flex flex-wrap gap-6 justify-center items-center">
           {breeds.map((breed) => (
             <div 
               key={breed.id}
-              className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 max-w-[300px]"
+              className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 max-w-[300px] w-full mx-auto sm:mx-0"
             >
               {/* Image Section */}
               <div className="relative h-48 overflow-hidden bg-gray-100">
