@@ -12,7 +12,7 @@
     "priceRange": "120K - 180K"
   },
   {
-    "id": 2,
+    "id": 3,
     "name": "Frisian Cross",
     "type": "Cow",
     "popularity": 90,
@@ -23,7 +23,7 @@
     "priceRange": "150K - 220K"
   },
   {
-    "id": 3,
+    "id": 2,
     "name": "Black Bengal",
     "type": "Goat",
     "popularity": 98,

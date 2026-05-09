@@ -1,7 +1,8 @@
 'use client'
 import animalsData from "@/data/animalsData.json"
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import Link from "next/link";
+import { useState } from "react";
 
 const AnimalsPage = () => {
 
@@ -78,7 +79,9 @@ const AnimalsPage = () => {
                         {/* description */}
                         <p className="text-gray-500 h-full mb-4">{item.description}</p>
 
-                        <button className="bg-[#40916C] text-white font-medium hover:bg-[#2D6A4F] btn btn-block">View Details</button>
+                        <Link href={`/animals/animal/${item.id}`}>
+                            <button className="bg-[#40916C] text-white font-medium hover:bg-[#2D6A4F] btn btn-block">View Details</button>
+                        </Link>
                     </div>)
                 }
             </div>

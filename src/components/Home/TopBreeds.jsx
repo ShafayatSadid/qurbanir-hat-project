@@ -78,7 +78,7 @@ const TopBreeds = () => {
                 </div>
                 
                 {/* View Button */}
-                <Link href={`/animals?breed=${breed.name.toLowerCase().replace(' ', '-')}`}>
+                <Link href={`/animals/animal/${breed.id}`}>
                   <button className="w-full border-2 border-[#40916C] text-[#40916C] py-2 rounded-full text-sm font-medium hover:bg-[#40916C] hover:text-white transition duration-300">
                     View {breed.name}
                   </button>

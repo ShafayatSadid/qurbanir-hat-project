@@ -1,5 +1,6 @@
 import featuredData from "@/data/featuredData.json"
 import Image from "next/image";
+import Link from "next/link";
 const Featured = () => {
     return (
         <div className="mt-30">
@@ -30,16 +31,17 @@ const Featured = () => {
                         {/* title and price */}
 
                         <h2 className="text-[1.5rem] font-bold mt-4">{item.name}</h2>
-                        <p className="text-xl font-bold text-[#F59E0B]">
-                            ৳{item.price.toLocaleString()}
-                        </p>
+                        <p className="text-xl font-bold text-[#F59E0B]">৳{item.price}</p>
 
                         {/* Breed */}
                         <p className="text-sm text-gray-500 mb-2">{item.breed}</p>
                         {/* description */}
                         <p className="text-gray-500 mb-4">{item.description}</p>
 
-                        <button className="bg-[#40916C] text-white font-medium hover:bg-[#2D6A4F] btn btn-block">View Details</button>
+                        <Link href={`/animals/animal/${item.id}`}>
+                            <button className="bg-[#40916C] text-white font-medium hover:bg-[#2D6A4F] btn btn-block">View Details</button>
+                        </Link>
+
                     </div>)
                 }
             </div>
