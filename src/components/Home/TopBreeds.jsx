@@ -1,7 +1,4 @@
 import breeds from "@/data/topBreeds.json"
-
-
-
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -27,11 +24,11 @@ const TopBreeds = () => {
         </div>
 
         {/* Breeds Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-[1300px] mx-auto">
           {breeds.map((breed) => (
             <div 
               key={breed.id}
-              className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 group"
+              className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 max-w-[300px]"
             >
               {/* Image Section */}
               <div className="relative h-48 overflow-hidden bg-gray-100">
