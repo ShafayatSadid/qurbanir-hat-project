@@ -51,7 +51,7 @@ const AnimalsPage = () => {
                 {/* featured card */}
                 {
                     filteredData.map(item => <div
-                        className="card w-[330px] h-[470px] bg-[#ffffff] shadow-lg rounded-2xl p-4 relative"
+                        className="card w-[330px] h-[480px] bg-[#ffffff] shadow-lg rounded-2xl p-4 relative"
                         key={item.id}>
                         <Image
                             src={item.image}
