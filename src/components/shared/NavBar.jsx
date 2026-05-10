@@ -1,9 +1,17 @@
+'use client'
 import Image from "next/image";
 import NavLink from "./NavLink";
 import profile from "@/assets/profile.png"
 import Link from "next/link";
+import { authClient } from "@/lib/auth-client";
 
 const NavBar = () => {
+
+    // get user session
+    const { data: session } = authClient.useSession()
+    const user = session?.user;
+    console.log(session, 'session:')
+
     return (
         <div className="navbar bg-[#ffffff] shadow-sm xl:px-20">
             <div className="navbar-start">
@@ -21,7 +29,7 @@ const NavBar = () => {
                         <li>
                             <NavLink href={"/animals"}>All Animals</NavLink>
                         </li>
-                        
+
                     </ul>
                 </div>
                 {/* logo */}
@@ -38,28 +46,36 @@ const NavBar = () => {
                     </li>
                 </ul>
             </div>
-            {/* last end if user logged */}
-            {/* <div className="navbar-end flex items-center gap-3">
-                <Image
-                    src={profile}
-                    height={40}
-                    width={40}
-                    alt="profile avatar"
-                    className="rounded-full border border-[#40916C]" />
-                <a className="btn btn-outline border border-red-600 font-semibold text-red-600 hover:bg-red-100 hover:text-red-700">Login</a>
-            </div> */}
+            {/* if user logged */}
+            {
+                session ? <div className="navbar-end flex items-center gap-3">
+                    <span>Hello, {user.name}</span>
+                    <Image
+                        src={profile}
+                        height={40}
+                        width={40}
+                        alt="profile avatar"
+                        className="rounded-full border border-[#40916C]" />
+                    <Link href={"/"}>
+                        <button onClick={async () => await authClient.signOut()} className="btn btn-outline border border-[#40916C] font-semibold text-[#40916C] hover:bg-red-100 hover:text-red-700">Log out</button>
+                    </Link>
+                </div>
+                    :
+                    <div className="navbar-end flex items-center gap-3">
+
+                        <Link href={"/login"}>
+                            <button className="btn btn-outline border border-[#40916C] font-semibold text-[#40916C] hover:bg-[#2D6A4F] hover:text-[#ffffff]">Login</button>
+                        </Link>
+
+                        <Link href={"/register"}>
+                            <button className="hidden md:flex btn bg-[#40916C] font-semibold text-[#FFFFFF] hover:bg-[#2D6A4F]">Register</button>
+                        </Link>
+                    </div>
+            }
+
 
             {/* if user no logged in */}
-            <div className="navbar-end flex items-center gap-3">
 
-                <Link href={"/login"}>
-                    <button className="btn btn-outline border border-[#40916C] font-semibold text-[#40916C] hover:bg-[#2D6A4F] hover:text-[#ffffff]">Login</button>
-                </Link>
-                
-                <Link href={"/register"}>
-                    <button className="hidden md:flex btn bg-[#40916C] font-semibold text-[#FFFFFF] hover:bg-[#2D6A4F]">Register</button>
-                </Link>
-            </div>
         </div>
     );
 };

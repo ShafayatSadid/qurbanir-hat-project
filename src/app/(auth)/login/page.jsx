@@ -1,10 +1,17 @@
 'use client'
 
+import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 import { FcGoogle } from "react-icons/fc";
+import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
 
 const LoginPage = () => {
+
+    // password toggle system
+    const [isShowPassword, setIsShowPassword] = useState(false);
 
     // react hook form
     const { register, handleSubmit, reset, formState: { errors } } = useForm()
@@ -12,6 +19,24 @@ const LoginPage = () => {
     // get submit function
     const getSubmit = async (userData) => {
         const { email, password } = userData;
+
+        // signin system from better auth
+        const { data, error } = await authClient.signIn.email({
+            email: email, // required
+            password: password, // required
+            rememberMe: true,
+            callbackURL: "/",
+        });
+
+        console.log({data, error}, "data:")
+
+        if (error) {
+            toast.error(`${error.message}`)
+        }
+        else {
+            toast.success('Successfully Sign In Your Account')
+            reset()  
+        }
     }
 
     return (
@@ -32,12 +57,16 @@ const LoginPage = () => {
                     </fieldset>
 
                     {/* password */}
-                    <fieldset className="fieldset mt-3">
+                    <fieldset className="fieldset relative mt-3">
                         <legend className="fieldset-legend text-[1rem] text-gray-700">Password</legend>
-                        <input {...register("password", { required: 'Password is required' })} type="password" className="input text-gray-800 w-full" placeholder="Your Password" />
+                        <input {...register("password", { required: 'Password is required' })} type={isShowPassword ? 'text' : 'password'} className="input text-gray-800 w-full" placeholder="Your Password" />
                         {errors.password && (
                             <p className='text-red-500'>{errors.password.message}</p>
                         )}
+
+                        <span onClick={() => setIsShowPassword(!isShowPassword)} className='text-[1rem] absolute right-3 top-4'>
+                            {isShowPassword ? <IoEyeOutline /> : <IoEyeOffOutline />}
+                        </span>
                     </fieldset>
 
                     <input type="submit" value="Login" className="btn btn-block bg-[#40916C] text-[#ffffff] hover:bg-[#2D6A4F] mt-6" />
