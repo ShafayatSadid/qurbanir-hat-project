@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Qurbani Hat Project
 
-## Getting Started
+## Project Overview
 
-First, run the development server:
+Qurbani Hat Project is a web application built with Next.js that provides a platform for users to explore and manage animals suitable for Qurbani (Islamic sacrifice). The app features user authentication, animal listings, and personalized profiles to help users make informed decisions.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Screenshot
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+![alt text](screencapture-qurbanir-hat-project-vercel-app-2026-05-10-15_16_29.png)
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Technologies Used
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Next.js
+- React
+- MongoDB
+- Better Auth
+- Tailwind CSS
+- DaisyUI
+- React Hook Form
+- React Hot Toast
+- React Icons
 
-## Learn More
+## Features
 
-To learn more about Next.js, take a look at the following resources:
+- User authentication (login, register, profile management)
+- Browse animals by category
+- View detailed animal information
+- Featured animals section
+- Top breeds showcase
+- Helpful tips for Qurbani
+- Responsive design
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Dependencies
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Production Dependencies
+- @better-auth/mongo-adapter: ^1.6.10
+- animate.css: ^4.1.1
+- better-auth: ^1.6.10
+- mongodb: ^7.2.0
+- next: 16.2.6
+- react: 19.2.4
+- react-dom: 19.2.4
+- react-hook-form: ^7.75.0
+- react-hot-toast: ^2.6.0
+- react-icons: ^5.6.0
 
-## Deploy on Vercel
+### Development Dependencies
+- @tailwindcss/postcss: ^4
+- babel-plugin-react-compiler: 1.0.0
+- daisyui: ^5.5.19
+- eslint: ^9
+- eslint-config-next: 16.2.6
+- tailwindcss: ^4
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Run Locally
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Follow these steps to run the project on your local machine:
+
+1. Clone the repository:
+   ```
+   git clone <repository-url>
+   ```
+
+2. Navigate to the project directory:
+   ```
+   cd qurbanir-hat-project
+   ```
+
+3. Install dependencies:
+   ```
+   npm install
+   ```
+
+4. Start the development server:
+   ```
+   npm run dev
+   ```
+
+5. Open your browser and visit `http://localhost:3000`
+
+## Links
+
+- Live Demo: https://qurbanir-hat-project.vercel.app/
+- GitHub Repository: https://github.com/ShafayatSadid/qurbanir-hat-project
