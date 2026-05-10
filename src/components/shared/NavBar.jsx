@@ -1,6 +1,7 @@
 import Image from "next/image";
 import NavLink from "./NavLink";
 import profile from "@/assets/profile.png"
+import Link from "next/link";
 
 const NavBar = () => {
     return (
@@ -20,6 +21,7 @@ const NavBar = () => {
                         <li>
                             <NavLink href={"/animals"}>All Animals</NavLink>
                         </li>
+                        
                     </ul>
                 </div>
                 {/* logo */}
@@ -49,9 +51,14 @@ const NavBar = () => {
 
             {/* if user no logged in */}
             <div className="navbar-end flex items-center gap-3">
-                <a className="btn btn-outline border border-[#40916C] font-semibold text-[#40916C] hover:bg-[#2D6A4F] hover:text-[#ffffff]">Login</a>
 
-                <a className="hidden md:flex btn bg-[#40916C] font-semibold text-[#FFFFFF] hover:bg-[#2D6A4F]">Register</a>
+                <Link href={"/login"}>
+                    <button className="btn btn-outline border border-[#40916C] font-semibold text-[#40916C] hover:bg-[#2D6A4F] hover:text-[#ffffff]">Login</button>
+                </Link>
+                
+                <Link href={"/register"}>
+                    <button className="hidden md:flex btn bg-[#40916C] font-semibold text-[#FFFFFF] hover:bg-[#2D6A4F]">Register</button>
+                </Link>
             </div>
         </div>
     );
