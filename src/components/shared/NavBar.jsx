@@ -8,9 +8,9 @@ import { authClient } from "@/lib/auth-client";
 const NavBar = () => {
 
     // get user session
-    const { data: session } = authClient.useSession()
+    const { data: session, isPending } = authClient.useSession()
     const user = session?.user;
-    console.log(session, 'session:')
+
 
     return (
         <div className="navbar bg-[#ffffff] shadow-sm xl:px-20">
@@ -29,7 +29,9 @@ const NavBar = () => {
                         <li>
                             <NavLink href={"/animals"}>All Animals</NavLink>
                         </li>
-
+                        <li>
+                            <NavLink href={"/profile"}>My Profile</NavLink>
+                        </li>
                     </ul>
                 </div>
                 {/* logo */}
@@ -44,19 +46,25 @@ const NavBar = () => {
                     <li>
                         <NavLink href={"/animals"}>All Animals</NavLink>
                     </li>
+                    <li>
+                        <NavLink href={"/profile"}>My Profile</NavLink>
+                    </li>
                 </ul>
             </div>
             {/* if user logged */}
-            {
-                session ? <div className="navbar-end flex items-center gap-3">
-                    <span>Hello, {user.name}</span>
+            {isPending ? <div className="navbar-end">
+                <span className="loading loading-ring loading-sm"></span>
+            </div>
+                : session ? <div className="navbar-end flex items-center gap-1 md:gap-3">
+                    <span className="md:hidden">Hello, {user.name.split(" ")[0]}</span>
+                    <span className="hidden md:flex">Hello, {user.name}</span>
                     <Image
-                        src={profile}
+                        src={user.image ? user.image : profile}
                         height={40}
                         width={40}
                         alt="profile avatar"
                         className="rounded-full border border-[#40916C]" />
-                    <Link href={"/"}>
+                    <Link className="hidden md:flex" href={"/"}>
                         <button onClick={async () => await authClient.signOut()} className="btn btn-outline border border-[#40916C] font-semibold text-[#40916C] hover:bg-red-100 hover:text-red-700">Log out</button>
                     </Link>
                 </div>

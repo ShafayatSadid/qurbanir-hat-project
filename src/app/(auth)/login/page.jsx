@@ -1,5 +1,4 @@
 'use client'
-
 import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
 import { useState } from "react";
@@ -10,6 +9,12 @@ import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
 
 const LoginPage = () => {
 
+    // sign in with google
+    const handleGoogleSignIn = async () => {
+        const data = await authClient.signIn.social({
+            provider: "google",
+        });
+    };
     // password toggle system
     const [isShowPassword, setIsShowPassword] = useState(false);
 
@@ -28,14 +33,14 @@ const LoginPage = () => {
             callbackURL: "/",
         });
 
-        console.log({data, error}, "data:")
+        console.log({ data, error }, "data:")
 
         if (error) {
             toast.error(`${error.message}`)
         }
         else {
             toast.success('Successfully Sign In Your Account')
-            reset()  
+            reset()
         }
     }
 
@@ -75,7 +80,7 @@ const LoginPage = () => {
 
 
                 <div className="divider">Or</div>
-                <button className="btn btn-block btn-outline text-[1rem] text-[#40916C] hover:bg-[#40916C] hover:text-white">
+                <button onClick={handleGoogleSignIn} className="btn btn-block btn-outline text-[1rem] text-[#40916C] hover:bg-[#40916C] hover:text-white">
                     <FcGoogle /> Login with google
                 </button>
 

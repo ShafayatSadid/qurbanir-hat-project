@@ -38,7 +38,8 @@ const RegisterPage = () => {
         else {
             toast.success('Successfully Created your Account')
             reset()
-            router.push('/')
+            await authClient.signOut()
+            router.push('/login')
         }
     }
 
@@ -71,7 +72,7 @@ const RegisterPage = () => {
                     {/* Profile */}
                     <fieldset className="fieldset mt-3">
                         <legend className="fieldset-legend text-[1rem] text-gray-700">Profile URL</legend>
-                        <input {...register("profile",)} type="email" className="input text-gray-800 w-full" placeholder="Your Profile URL (Optional)" />
+                        <input {...register("profile",)} type="text" className="input text-gray-800 w-full" placeholder="Your Profile URL (Optional)" />
 
                     </fieldset>
 
